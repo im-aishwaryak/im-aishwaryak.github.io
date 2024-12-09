@@ -1,61 +1,266 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;700&display=swap');
 
-body {
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 100px;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-  text-align: center;
-  font-family: "DM Sans", sans-serif;
+html, body {
+  overflow: hidden;
+}
 
-  /* Adjust the radial gradients */
-  background: radial-gradient(circle at bottom left, #8b6118 5%, transparent 50%),
-              radial-gradient(circle at top right, #477678 5%, transparent 50%),
-              radial-gradient(circle at top left, #151a2b 70%, transparent 70%),
-              radial-gradient(circle at bottom right, #151a2b 70%, transparent 70%);
-  background-size: 150% 150%; /* Smaller area to make gradients overlap */
-  animation: AnimationName 10s ease infinite;
+body {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "DM Sans", sans-serif;
+
+    /* Adjust the radial gradients */
+    background: radial-gradient(circle at bottom left, #8b6118 5%, transparent 50%),
+        radial-gradient(circle at top right, #477678 5%, transparent 50%),
+        radial-gradient(circle at top left, #151a2b 70%, transparent 70%),
+        radial-gradient(circle at bottom right, #151a2b 70%, transparent 70%);
+    background-size: 150% 150%;
+    /* Smaller area to make gradients overlap */
+    animation: AnimationName 10s ease infinite;
 }
 
 @keyframes AnimationName {
-  0% {
-    background-position: 25% 25%, 75% 25%, 25% 75%, 75% 75%;
-  }
-  50% {
-    background-position: 75% 75%, 25% 75%, 75% 25%, 25% 25%;
-  }
-  100% {
-    background-position: 25% 25%, 75% 25%, 25% 75%, 75% 75%;
-  }
+    0% {
+        background-position: 25% 25%, 75% 25%, 25% 75%, 75% 75%;
+    }
+
+    50% {
+        background-position: 75% 75%, 25% 75%, 75% 25%, 25% 25%;
+    }
+
+    100% {
+        background-position: 25% 25%, 75% 25%, 25% 75%, 75% 75%;
+    }
 }
 
 
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 950px;
-  width: 100%;
-  gap: 40px;
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 950px;
+    width: 100%;
+    gap: 25px;
 }
 
 #profile-pic {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: url(<path-to-image>) lightgray no-repeat center;
-  background-size: cover;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: url(<path-to-image>) lightgray no-repeat center;
+    background-size: cover;
+    transition: 0.5s ease;
+}
+
+#profile-pic:hover {
+  opacity: 0.5;
 }
 
 .text-container {
-  text-align: center;
+    text-align: center;
 }
 
 .text-container div {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    background: linear-gradient(116deg, #ffc665 26.29%, #92e3e7 60.5%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dynamic-text {
+    color: white;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    display: inline-block;
+    border-right: 3px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.horizontal-nav {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.horizontal-nav a {
+    padding: 10px 20px;
+    border-radius: 10px;
+    min-width: 130px;
+    background: rgba(11, 14, 25, 0.6);
+    color: #ffb539;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.5s ease;
+    text-align: center;
+}
+
+.horizontal-nav a:hover {
+    background: rgba(6, 7, 13, 1);
+}
+
+.social-icons {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.social-icons img {
+    opacity: 0.8;
+    transition: 0.5s ease
+}
+
+.social-icons img:hover {
+    opacity: 1;
+}
+
+a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+p, ul li {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+}
+
+ul li {
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+#credits {
+    color: #ffffffbf;
+    margin: 0;
+    font-family: 'Space Grotesk';
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+#my-name-outliney {
+    width: 200px;
+    stroke-dasharray: 3186;
+    animation: 5s fillSvg linear;
+}
+
+@keyframes fillSvg {
+    0% {
+        stroke-dashoffset: 3186;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+
+
+
+
+
+
+/* Two-column layout with side nav */
+.two-col {
+  display: flex;  /* This makes the layout horizontal */
+  width: 100%;  /* Full width of the container */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Sidebar styling */
+.side-bar {
+  width: 160px;  /* Fixed width for the sidebar */
+  padding: 60px 40px 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.30);  /* Semi-transparent background */
+  flex-shrink: 0;  /* Prevent it from shrinking */
+}
+
+/* Main content area next to sidebar */
+.aside-content {
+  flex-grow: 1;  /* This makes the main content take up remaining space */
+  padding: 60px 50px 30px 50px;  /* Adjust padding as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Top bar and other sections inside the content area */
+.top-bar, .vertical-nav, .bottom-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Navigation links inside sidebar */
+.vertical-nav a {
+  color: #FFB539;
+  font-family: "Space Grotesk";
+  font-size: 17.6px;
+  font-weight: 700;
+  line-height: 90%;
+  padding: 8px 0;  /* Add padding for spacing */
+}
+
+/* About text or other content section */
+#about-text {
+  flex-direction: column;
+  gap: 22.4px;
+}
+
+#spotify-player {
+    display: flex;
+    padding: 5px 15px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 8px;
+    background: rgba(11, 14, 25, 0.60);
+}
+
+#spotify-text {
+  flex: auto;
+}
+
+#spotify-text h4 {
+    color: #FFC069;
+    font-family: "Space Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 90%;
+    padding-bottom: 5px;
+    /* 14.4px */
+}
+
+#spotify-text p {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "DM Sans";
+    font-size: 12.8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 90%;
+    /* 11.52px */
+}
+
+h1 {
   font-size: 64px;
   font-weight: 500;
   line-height: 1;
@@ -64,78 +269,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.dynamic-text {
-  color: white;
-  font-size: 64px;
-  font-weight: 500;
-  line-height: 1;
-  display: inline-block;
-  border-right: 3px solid white;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  max-width: 800px;
-}
-
-nav a {
-  padding: 15px 25px;
-  border-radius: 10px;
-  min-width: 165px;
-  background: rgba(11, 14, 25, 0.6);
-  color: #ffb539;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: 0.5s ease;
-}
-
-nav a:hover {
-  background: rgba(6, 7, 13, 1);
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 15px;
-  align-self: stretch;
-}
-
-.social-icons img {
-  opacity: 0.8;
-  transition: 0.5s ease
-}
-
-.social-icons img:hover {
-  opacity: 1;
-}
-
-p {
-  color: rgba(255, 255, 255, 0.75);
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 16px;
+p, h1, h2, h3, h4, h5, h6, span {
   margin: 0;
-  padding: 40px;
-}
-
-#my-name-outliney {
-  width: 200px;
-  stroke-dasharray: 3186;
-  animation: 5s fillSvg linear;
-}
-
-@keyframes fillSvg {
-  0% {
-    stroke-dashoffset: 3186;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
+  padding: 0;
 }

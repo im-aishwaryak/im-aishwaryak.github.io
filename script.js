@@ -1,4 +1,4 @@
-const phrases = ["an Artist. ", "an Innovator. ", "a Creator. ", "a Leader. "];
+const phrases = ["an Innovator. ", "a Developer. ", "a Leader. ", "an Artist. ", "a Mathematician. "];
 const dynamicText = document.querySelector(".dynamic-text");
 let currentPhraseIndex = 0;
 let currentCharIndex = 0;
