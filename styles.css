@@ -20,7 +20,6 @@ body {
         radial-gradient(circle at bottom right, #151a2b 70%, transparent 70%);
     background-size: 150% 150%;
     /* Smaller area to make gradients overlap */
-    animation: AnimationName 10s ease infinite;
 }
 
 @keyframes AnimationName {
@@ -163,6 +162,23 @@ ul li {
     100% {
         stroke-dashoffset: 0;
     }
+}
+
+
+#hobbies-outliney {
+  width: 400px;
+  stroke-dasharray: 5000;
+  animation: 5s fillSvg1 linear;
+}
+
+@keyframes fillSvg1 {
+  0% {
+      stroke-dashoffset: 5000;
+  }
+
+  100% {
+      stroke-dashoffset: 0;
+  }
 }
 
 
