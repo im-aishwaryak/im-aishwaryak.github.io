@@ -20,6 +20,8 @@ body {
         radial-gradient(circle at bottom right, #151a2b 70%, transparent 70%);
     background-size: 150% 150%;
     /* Smaller area to make gradients overlap */
+
+    animation: AnimationName 10s infinite ease-in-out;
 }
 
 @keyframes AnimationName {
@@ -57,7 +59,7 @@ body {
 }
 
 #profile-pic:hover {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .text-container {
@@ -215,6 +217,7 @@ ul li {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  overflow-y: scroll;
 }
 
 /* Top bar and other sections inside the content area */
@@ -279,7 +282,7 @@ ul li {
 h1 {
   font-size: 64px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.1;
   background: linear-gradient(116deg, #ffc665 26.29%, #92e3e7 60.5%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -288,4 +291,91 @@ h1 {
 p, h1, h2, h3, h4, h5, h6, span {
   margin: 0;
   padding: 0;
+}
+
+
+
+
+
+
+
+
+
+.card-container {
+  display: flex;
+  width: 657.6px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 30px 24px;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background-image: url("images/daffodile.png");
+  width: 314.4px;
+  height: 298.8px;
+  border-radius: 8px;
+}
+
+.project-card-cover {
+  width: 314.4px;
+  height: 298.8px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: rgba(21, 26, 43, 0.75); /* Adjusted background color */
+  backdrop-filter: blur(7.5px); /* Blurred backdrop for subtle effect */
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.project-card-cover h4 {
+  font-size: 24px; /* Larger size for title */
+  font-weight: bold; /* Bold text */
+  color: #ffc665; /* Gradient alternative color for title */
+  margin: 0;
+}
+
+.project-card-cover p {
+  font-size: 16px; /* Slightly smaller for information */
+  color: #ffffff; /* White for better contrast */
+  opacity: 0.8; /* Softer appearance */
+  margin: 0;
+  text-align: center; /* Centered text alignment */
+}
+
+.project-card .tags {
+  font-size: 14px; /* Small size for tags */
+  color: #ffffff; /* Same contrast color */
+  opacity: 0.8;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+/* Customize the scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.9); /* Slightly darker on hover */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Transparent track */
 }
