@@ -180,7 +180,7 @@ ul li {
 #hobbies-outliney {
   width: 400px;
   stroke-dasharray: 5000;
-  animation: 5s fillSvg1 linear;
+  animation: 75s fillSvg1 linear;
 }
 
 @keyframes fillSvg1 {
@@ -310,8 +310,20 @@ p, h1, h2, h3, h4, h5, h6, span {
 }
 
 
+h2 {
+  color: white;
+}
 
+hr {
+  opacity: 0.5;
+}
 
+.art-portfolio {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+}
 
 
 /* Container for the card */
