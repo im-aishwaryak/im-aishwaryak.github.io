@@ -40,6 +40,16 @@ body {
 
 
 
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+
+
 .center-container {
     display: flex;
     flex-direction: column;
@@ -236,6 +246,12 @@ ul li {
   font-weight: 700;
   line-height: 90%;
   padding: 8px 0;  /* Add padding for spacing */
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.vertical-nav a:hover {
+  color: white;
 }
 
 /* About text or other content section */
@@ -298,19 +314,70 @@ p, h1, h2, h3, h4, h5, h6, span {
 
 
 
+/* Container for the card */
+.project-card {
+  width: 400px; /* Set the size of the card */
+  height: 400px; /* Square shape */
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px; /* Optional rounded corners */
+}
+
+/* Background layer */
+.project-background {
+  width: 100%;
+  height: 100%;
+  background-image: url("images/daffodile.png"); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  filter: none; /* Ensure no blur initially */
+  transition: filter 0.3s ease, opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Below the text */
+}
+
+/* Overlay text */
+.project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth transition effect */
+  z-index: 2; /* Ensure it stays above the background */
+}
+
+/* Hover effect */
+.project-card:hover .project-background {
+  filter: blur(4px) brightness(0.5); /* Blur and dim the background */
+}
+
+.project-card:hover .project-info {
+  opacity: 1; /* Show text on hover */
+}
+
+
+
+
+
 
 
 
 .card-container {
   display: flex;
-  width: 657.6px;
+  width: 100%;
   align-items: flex-start;
   align-content: flex-start;
   gap: 30px 24px;
   flex-wrap: wrap;
 }
 
-.project-card {
+.project {
   background-image: url("images/daffodile.png");
   width: 314.4px;
   height: 298.8px;
