@@ -32,30 +32,7 @@ function typeEffect() {
   setTimeout(typeEffect, delay);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleButton = document.getElementById("theme-toggle");
-
-  // Load saved theme from localStorage
-  const savedTheme = localStorage.getItem("theme") || "light";
-  document.documentElement.setAttribute("data-theme", savedTheme);
-
-  // Update button text
-  toggleButton.textContent = savedTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
-
-  // Toggle theme on button click
-  toggleButton.addEventListener("click", () => {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    const newTheme = currentTheme === "light" ? "dark" : "light";
-
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-
-    toggleButton.textContent = newTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
+function secretPhrase() {
   const secretCode = "PANEERWITCH";
   let input = "";
 
@@ -69,8 +46,49 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "C:\\Users\\aishw\\OneDrive\\Documents\\GitHub\\Personal-Website\\secret-room.html"; // Replace with your secret page URL
     }
   });
+}
+
+let songsByArtist = {
+  "yung kai": ["blue"],
+  "IVE": ["REBEL HEART"],
+  "Will Not Fear": ["Bouquet (feat. YOUHA, punchnello)"],
+  "TOMORROW X TOGETHER": ["Deja Vu", "Heaven", "Over The Moon", "ひとつの誓い (We'll Never Change)", "0X1=LOVESONG (I Know I Love You) feat. Seori", "Forty One Winks"],
+  "ROSÉ": ["gameboy", "toxic till the end", "two years", "3am", "number one girl"],
+  "Chappell Roan": ["Good Luck, Babe!"],
+  "KISS OF LIFE": ["TTG", "Sugarcoat (NATTY Solo)", "Sticky", "Chemistry", "My 808", "Igloo", "R.E.M", "Nothing"],
+  "Ariana Grande": ["Just Look Up (From Don't Look Up)", "34+35"],
+  "aespa": ["Dopamine - GISELLE Solo", "Bored! - NINGNING Solo", "Thirsty", "Flowers", "Lucid Dream"],
+  "HYBS": ["Dancing with my phone"],
+  "Bruno Mars & ROSÉ": ["APT."],
+  "HUH YUNJIN": ["love you twice"],
+  "VIVIZ": ["Shhh!", "Full Moon", "Hypnotize"],
+  "Jay Park": ["Mayday (Feat. Ty Dolla $ign)", "Taxi Blurr (Feat. NATTY from Kiss of Life)"],
+  "wave to earth": ["bad"],
+  "LE SSERAFIM": ["Swan Song"],
+  "LeeHi": ["Bye", "H.S.K.T. (feat. Wonstein)"],
+  "YOUHA": ["Flight", "Last Dance", "Satellite"],
+  "keshi": ["Like That", "beside you", "Soft Spot", "UNDERSTAND"],
+  "nothing at the moment" : ["", "", "", ""]
+};
+
+function currentlyListening() {
+  // Pick a random artist
+  const artists = Object.keys(songsByArtist);
+  const randomArtist = artists[Math.floor(Math.random() * artists.length)];
+  
+  // Pick a random song by the artist
+  const randomSong = songsByArtist[randomArtist][Math.floor(Math.random() * songsByArtist[randomArtist].length)];
+  
+  // Update the text content of the "currentlyListening" element
+  document.getElementById("currentlyListening").innerHTML = `Currently vibing to <b>${randomSong}</b> by <b>${randomArtist}</b>`;
+}
+
+// Ensure the script runs after the DOM loads
+document.addEventListener("DOMContentLoaded", () => {
+  currentlyListening(); // Initial call
+  setInterval(currentlyListening, 45000);
 });
 
 
-// Start the effect
 typeEffect();
+secretPhrase();

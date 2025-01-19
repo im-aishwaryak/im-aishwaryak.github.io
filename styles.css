@@ -108,7 +108,8 @@ img {
     padding: 10px 20px;
     border-radius: 10px;
     min-width: 130px;
-    background: rgba(11, 14, 25, 0.6);
+    background: rgba(11, 14, 25, 0.4);
+    backdrop-filter: blur(20px); 
     color: #ffb539;
     font-family: "Space Grotesk", sans-serif;
     font-size: 18px;
@@ -119,7 +120,7 @@ img {
 }
 
 .horizontal-nav a:hover {
-    background: rgba(6, 7, 13, 1);
+  background: rgba(11, 14, 25, 0.9);
 }
 
 .social-icons {
@@ -260,6 +261,10 @@ ul li {
   gap: 22.4px;
 }
 
+#about-text h2 {
+  color: #FFB539;
+}
+
 #spotify-player {
     display: flex;
     padding: 5px 15px;
@@ -268,6 +273,12 @@ ul li {
     align-self: stretch;
     border-radius: 8px;
     background: rgba(11, 14, 25, 0.60);
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    left: 280px;
+    width: auto;
+    backdrop-filter: blur(15px); 
 }
 
 #spotify-text {
@@ -333,6 +344,8 @@ hr {
   position: relative;
   overflow: hidden;
   border-radius: 8px; /* Optional rounded corners */
+  transition: transform 0.1s ease;
+  transform-style: preserve-3d; /* Enable 3D transform */
 }
 
 /* Background layer */
@@ -357,16 +370,28 @@ hr {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 1.5rem;
   text-align: center;
   opacity: 0; /* Hidden by default */
   transition: opacity 0.3s ease; /* Smooth transition effect */
   z-index: 2; /* Ensure it stays above the background */
+  width: 80%;
+}
+
+.project-info h3 {
+  font-size: 30px;
+  line-height: 35px;
+  padding-bottom: 15px;
+  color:#ffc665;
+}
+
+.project-info p {  
+  font-size: 20px;
+  line-height: 25px;
 }
 
 /* Hover effect */
 .project-card:hover .project-background {
-  filter: blur(4px) brightness(0.5); /* Blur and dim the background */
+  filter: blur(10px) brightness(0.6);
 }
 
 .project-card:hover .project-info {
@@ -390,7 +415,6 @@ hr {
 }
 
 .project {
-  background-image: url("images/daffodile.png");
   width: 314.4px;
   height: 298.8px;
   border-radius: 8px;
@@ -457,4 +481,55 @@ hr {
 
 ::-webkit-scrollbar-track {
   background-color: transparent; /* Transparent track */
+}
+
+
+
+
+.text-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  border-radius: 8px;
+  background: rgba(11, 14, 25, 0.30);
+  text-decoration: none;
+  max-width: 300px;
+  backdrop-filter: blur(15px); 
+}
+
+.card-img-header {
+  height: 250px;
+  align-self: stretch;
+  border-radius: 8px;
+}
+
+.card-text {
+  display: flex;
+  padding: 20px 15px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.card-text h2 {
+  align-self: stretch;
+  color: #D5EFF0;
+  font-family: "Space Grotesk";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 90%; /* 16.2px */
+}
+
+.card-text p {
+  align-self: stretch;
+  color: #FFF;
+  font-family: "DM Sans";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90%; /* 10.8px */
+  opacity: 0.6;
 }
