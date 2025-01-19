@@ -494,6 +494,7 @@ hr {
   border-radius: 8px;
   background: rgba(11, 14, 25, 0.30);
   text-decoration: none;
+  min-width: 250px;
   max-width: 300px;
   backdrop-filter: blur(15px); 
 }
