@@ -621,10 +621,11 @@ hr {
     width: 100%;
     right: 0px;
     top: 93px;
-    background-color: #151a2b;
+    background: rgba(11, 14, 25, 0.60);
     padding: 30px 30px;
     box-sizing: border-box;
     z-index: 100;
+    backdrop-filter: blur(15px); 
   }
 
   .vertical-nav.show {
