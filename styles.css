@@ -265,6 +265,7 @@ ul li {
 #about-text {
   flex-direction: column;
   gap: 22.4px;
+  width: 100%;
 }
 
 #about-text h2 {
@@ -337,7 +338,8 @@ hr {
 }
 
 .art-portfolio {
-  width: auto;
+  width: 100%;
+  max-width: fit-content;
   height: 300px;
   object-fit: cover;
   border-radius: 15px;
@@ -354,13 +356,13 @@ hr {
 
 /* Container for the card */
 .project-card {
-  width: 400px; /* Set the size of the card */
-  height: 400px; /* Square shape */
+  width: 100%;
+  max-width: 500px; /* Limit the width to 400px */
+  aspect-ratio: 1 / 1; /* Maintain square shape */
   position: relative;
   overflow: hidden;
   border-radius: 8px; /* Optional rounded corners */
   transition: transform 0.1s ease;
-  transform-style: preserve-3d; /* Enable 3D transform */
 }
 
 /* Background layer */
@@ -510,7 +512,7 @@ hr {
   background: rgba(11, 14, 25, 0.30);
   text-decoration: none;
   min-width: 250px;
-  max-width: 300px;
+  width: 100%;
   backdrop-filter: blur(15px); 
   transition: 0.5s;
   filter: brightness(0.8);
@@ -576,7 +578,11 @@ hr {
 
 
 
-
+@media screen and (max-width: 468px) {
+  .horizontal-nav a {
+    width: 100%;
+  }
+}
 
 
 
@@ -673,6 +679,7 @@ hr {
     overflow-y: scroll;
     overflow-x: hidden;
     height: 80%;
+    padding-bottom: 80px;
   }
 
 
@@ -704,6 +711,10 @@ hr {
     height: 30px;
   }
 
+  #menu-icon:hover {
+    cursor: pointer;
+  }
+
   #credits {
     display: none;
   }
@@ -711,6 +722,12 @@ hr {
 
   .center-container {
     align-items: center;
+    overflow-y: scroll;
+  }
+
+  #hobbies-outliney {
+    width: 100%; 
+    max-width: fit-content;
   }
 
 }
