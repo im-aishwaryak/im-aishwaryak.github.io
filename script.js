@@ -42,11 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function typeEffect() {
       const currentPhrase = phrases[currentPhraseIndex];
+      dynamicText.textContent = "a";
 
       if (!isDeleting) {
-        dynamicText.textContent = currentPhrase.slice(0, currentCharIndex++);
+        dynamicText.textContent += currentPhrase.slice(1, currentCharIndex++);
       } else {
-        dynamicText.textContent = currentPhrase.slice(0, currentCharIndex--);
+        dynamicText.textContent += currentPhrase.slice(1, currentCharIndex--);
       }
 
       let delay = isDeleting ? 100 : 200;
