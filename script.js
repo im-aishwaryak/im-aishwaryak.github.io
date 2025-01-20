@@ -1,66 +1,5 @@
 const phrases = ["an Innovator. ", "a Developer. ", "a Leader. ", "an Artist. ", "a Mathematician. "];
-const dynamicText = document.querySelector(".dynamic-text");
-let currentPhraseIndex = 0;
-let currentCharIndex = 0;
-let isDeleting = false;
-
-function typeEffect() {
-  const currentPhrase = phrases[currentPhraseIndex];
-  
-  if (!isDeleting) {
-    // Typing
-    dynamicText.textContent = currentPhrase.slice(0, currentCharIndex++);
-  } else {
-    // Deleting
-    dynamicText.textContent = currentPhrase.slice(0, currentCharIndex--);
-  }
-
-  // Determine delay
-  let delay = isDeleting ? 100 : 200;
-
-  if (!isDeleting && currentCharIndex === currentPhrase.length) {
-    // Pause before deleting
-    isDeleting = true;
-    delay = 1000;
-  } else if (isDeleting && currentCharIndex === 1) {
-    // Move to next phrase
-    isDeleting = false;
-    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-    delay = 500;
-  }
-
-  setTimeout(typeEffect, delay);
-}
-
-typeEffect();
-
-// Get the menu button and dropdown menu
-const menuButton = document.getElementById('menu-icon');
-const dropdownMenu = document.querySelector('.vertical-nav');
-
-// Add a click event listener to the menu button
-menuButton.addEventListener('click', function() {
-    // Toggle the 'show' class on the dropdown menu
-    dropdownMenu.classList.toggle('show');
-});
-
-function secretPhrase() {
-  const secretCode = "PANEERWITCH";
-  let input = "";
-
-  document.addEventListener("keydown", (event) => {
-    input += event.key.toUpperCase(); // Capture keypress and make it uppercase
-    if (input.length > secretCode.length) {
-      input = input.slice(-secretCode.length); // Keep the last n characters
-    }
-
-    if (input === secretCode) {
-      window.location.href = "C:\\Users\\aishw\\OneDrive\\Documents\\GitHub\\Personal-Website\\secret-room.html"; // Replace with your secret page URL
-    }
-  });
-}
-
-let songsByArtist = {
+const songsByArtist = {
   "yung kai": ["blue"],
   "IVE": ["REBEL HEART"],
   "Will Not Fear": ["Bouquet (feat. YOUHA, punchnello)"],
@@ -80,25 +19,70 @@ let songsByArtist = {
   "LeeHi": ["Bye", "H.S.K.T. (feat. Wonstein)"],
   "YOUHA": ["Flight", "Last Dance", "Satellite"],
   "keshi": ["Like That", "beside you", "Soft Spot", "UNDERSTAND"],
-  "nothing at the moment" : ["", "", "", ""]
+  "nothing at the moment": ["", "", "", ""]
 };
 
-function currentlyListening() {
-  // Pick a random artist
-  const artists = Object.keys(songsByArtist);
-  const randomArtist = artists[Math.floor(Math.random() * artists.length)];
-  
-  // Pick a random song by the artist
-  const randomSong = songsByArtist[randomArtist][Math.floor(Math.random() * songsByArtist[randomArtist].length)];
-  
-  // Update the text content of the "currentlyListening" element
-  document.getElementById("currentlyListening").innerHTML = `Currently vibing to <b>${randomSong}</b> by <b>${randomArtist}</b>`;
-}
-
-// Ensure the script runs after the DOM loads
 document.addEventListener("DOMContentLoaded", () => {
-  currentlyListening(); // Initial call
-  setInterval(currentlyListening, 45000);
-});
+  const dynamicText = document.querySelector(".dynamic-text");
+  const menuButton = document.getElementById('menu-icon');
+  const dropdownMenu = document.querySelector('.vertical-nav');
 
-secretPhrase();
+  // Handle menu toggle
+  if (menuButton && dropdownMenu) {
+    menuButton.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('show');
+    });
+  }
+
+  // Typing effect logic
+  if (dynamicText) {
+    let currentPhraseIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentPhrase = phrases[currentPhraseIndex];
+
+      if (!isDeleting) {
+        dynamicText.textContent = currentPhrase.slice(0, currentCharIndex++);
+      } else {
+        dynamicText.textContent = currentPhrase.slice(0, currentCharIndex--);
+      }
+
+      let delay = isDeleting ? 100 : 200;
+
+      if (!isDeleting && currentCharIndex === currentPhrase.length) {
+        isDeleting = true;
+        delay = 1000;
+      } else if (isDeleting && currentCharIndex === 0) {
+        isDeleting = false;
+        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+        delay = 500;
+      }
+
+      setTimeout(typeEffect, delay);
+    }
+
+    typeEffect();
+  }
+
+  // "Currently Listening" logic
+  function currentlyListening() {
+    const artists = Object.keys(songsByArtist);
+    let randomArtist, randomSong;
+
+    do {
+      randomArtist = artists[Math.floor(Math.random() * artists.length)];
+      randomSong = songsByArtist[randomArtist][Math.floor(Math.random() * songsByArtist[randomArtist].length)];
+    } while (!randomSong);
+
+    const currentlyListeningElement = document.getElementById("currentlyListening");
+    if (currentlyListeningElement) {
+      currentlyListeningElement.innerHTML = 
+        `Currently vibing to <b>${randomSong}</b> by <b>${randomArtist}</b>`;
+    }
+  }
+
+  currentlyListening();
+  setInterval(currentlyListening, 45000); // Update every 45 seconds
+});
