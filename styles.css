@@ -408,7 +408,7 @@ hr {
 
 /* Hover effect */
 .project-card:hover .project-background {
-  filter: blur(10px) brightness(0.6);
+  filter: blur(15px) brightness(0.6);
 }
 
 .project-card:hover .project-info {
@@ -570,7 +570,9 @@ hr {
   display: none; /* Initially hide the div */
 }
 
-
+.card-blur {
+  filter: blur(20px);
+}
 
 
 
