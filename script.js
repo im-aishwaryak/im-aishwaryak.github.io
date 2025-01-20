@@ -32,6 +32,8 @@ function typeEffect() {
   setTimeout(typeEffect, delay);
 }
 
+typeEffect();
+
 // Get the menu button and dropdown menu
 const menuButton = document.getElementById('menu-icon');
 const dropdownMenu = document.querySelector('.vertical-nav');
@@ -99,6 +101,4 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(currentlyListening, 45000);
 });
 
-
-typeEffect();
 secretPhrase();
