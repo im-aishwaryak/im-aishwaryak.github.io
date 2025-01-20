@@ -32,6 +32,16 @@ function typeEffect() {
   setTimeout(typeEffect, delay);
 }
 
+// Get the menu button and dropdown menu
+const menuButton = document.getElementById('menu-icon');
+const dropdownMenu = document.querySelector('.vertical-nav');
+
+// Add a click event listener to the menu button
+menuButton.addEventListener('click', function() {
+    // Toggle the 'show' class on the dropdown menu
+    dropdownMenu.classList.toggle('show');
+});
+
 function secretPhrase() {
   const secretCode = "PANEERWITCH";
   let input = "";
