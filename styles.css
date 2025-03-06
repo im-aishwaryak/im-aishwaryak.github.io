@@ -427,6 +427,23 @@ hr {
   line-height: 25px;
 }
 
+.project-info ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+  display: flex; /* Make the list items align horizontally */
+  align-items: center;
+  gap: 5px;
+  width: auto;
+}
+
+.project-info ul li {
+  background-color: #477678;
+  padding: 7px 12px;
+  width: fit-content;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
 /* Hover effect */
 .project-card:hover .project-background {
   filter: blur(15px) brightness(0.6);
