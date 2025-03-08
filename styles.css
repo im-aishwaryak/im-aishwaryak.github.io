@@ -428,16 +428,17 @@ hr {
 }
 
 .project-info ul {
-  list-style-type: none; /* Remove bullet points */
-  padding: 0; /* Remove padding */
-  display: flex; /* Make the list items align horizontally */
+  list-style-type: none;
+  padding: 0;
+  display: flex;
   align-items: center;
+  justify-content: center; /* Center items horizontally */
   gap: 5px;
-  width: auto;
+  width: 100%; /* Ensure it takes up available space */
 }
 
 .project-info ul li {
-  background-color: #477678;
+  background-color: #428e91;
   padding: 7px 12px;
   width: fit-content;
   text-decoration: none;
