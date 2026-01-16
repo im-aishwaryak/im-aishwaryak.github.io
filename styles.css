@@ -375,21 +375,7 @@ hr {
   opacity: 0.5;
 }
 
-.art-portfolio {
-  width: 100%;
-  max-width: fit-content;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 15px;
-  transition: 0.5s;
-  filter: brightness(0.8);
-}
 
-.art-portfolio:hover {
-  scale: 1.01;
-  filter: brightness(1);
-  box-shadow: 0px 0px 10px #151a2b;
-}
 
 
 /* Container for the card */
@@ -786,4 +772,33 @@ hr {
     max-width: fit-content;
   }
 
+}
+
+.art-card {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  width: max-content; /* shrink to image width */
+}
+
+.art-portfolio {
+  height: 375px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: 0.5s;
+  display: block; /* removes inline whitespace issues */
+}
+
+
+.art-portfolio:hover {
+  scale: 1.01;
+  filter: brightness(1.1);
+  box-shadow: 0px 0px 10px #151a2b;
+}
+
+.art-card p {
+  font-size: 13px;
+  color: #ffffffb1;
+  padding-top: 4px;
+  width: 100%;
 }
