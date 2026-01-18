@@ -68,11 +68,12 @@
                         stroke="url(#gradientStroke)" stroke-width="8" stroke-linecap="round" />
                 </svg>
 
-                <br><br><br>
+                <p>Documenting it all. From practice pieces to artworks that won awards! New pieces at the top, and older ones below. There's definitely works I'm not satisfied with here ...</p>
 
-                <h3>2026</h3>
-                <hr><br>
-                <div class="card-container">
+                <br><br>
+
+
+                <div class="gallery-container">
                     <div class="art-card">
                         <img class="art-portfolio" src="images/artwork/ap16.jpg">
                         <p>"Cookie Cutter" (2026 Scholastic Art Gold Key, Portfolio Gold Key)</p>
@@ -85,12 +86,7 @@
                         <img class="art-portfolio" src="images/artwork/ap14.jpg">
                         <p>"A Little Economy" (2026 Scholastic Art Silver Key, Portfolio Gold Key)</p>
                     </div>
-                </div>
-                <br><br>
 
-                <h3>2024 - 2025</h3>
-                <hr><br>
-                <div class="card-container">
                     <div class="art-card">
                         <img class="art-portfolio" src="images/artwork/ap13.png">
                         <p>"Fingerprints: From Art to Authentication" (2026 Scholastic Art Portfolio Gold Key)</p>
@@ -104,13 +100,9 @@
                     </div>
                     <div class="art-card">
                         <img class="art-portfolio" src="images/artwork/ap11.jpg">
+                        <p>A Burdened Glow (2025)</p>
                     </div>
-                </div>
-                <br><br>
 
-                <h3>2023</h3>
-                <hr><br>
-                <div class="card-container">
                     <div class="art-card">
                         <img class="art-portfolio" src="images/artwork/ap9.jpg">
                         <p>"Some Will Float" (2026 Scholastic Art Portfolio Gold Key)</p>
@@ -121,11 +113,12 @@
                     </div>
                     <div class="art-card">
                         <img class="art-portfolio" src="images/artwork/ap7.jpg">
-                        
+
                     </div>
                     <div class="art-card">
                         <img class="art-portfolio" src="images/artwork/ap6.jpg">
-                        
+                        <p>Enhypen Dark Blood Album Vinyl-Mimic Design (2023)</p>
+
                     </div>
                     <div class="art-card">
                         <img class="art-portfolio" src="images/artwork/ap2.jpg">
@@ -140,9 +133,11 @@
                     </div>
                     <div class="art-card">
                         <img class="art-portfolio" src="images/artwork/ap5.jpg">
+                        <p>Felix from Stray Kids (2023)</p>
                     </div>
                     <div class="art-card">
                         <img class="art-portfolio" src="images/artwork/ap8.jpg">
+                        <p>Lee Know from Stray Kids (2023)</p>
                     </div>
 
                 </div>
@@ -156,6 +151,67 @@
 
         </div>
     </div>
+
+    <script>
+        function layoutMasonry() {
+            const container = document.querySelector('.gallery-container');
+            const cards = Array.from(document.querySelectorAll('.art-card'));
+            const gap = 16;
+
+            // Determine columns
+            let columns = 3;
+            if (window.innerWidth <= 1200) columns = 2;
+            if (window.innerWidth <= 640) columns = 1;
+
+            // Get actual container width
+            const containerWidth = container.getBoundingClientRect().width;
+            const cardWidth = (containerWidth - (gap * (columns - 1))) / columns;
+
+            // Track heights
+            const columnHeights = new Array(columns).fill(0);
+            let loadedCount = 0;
+
+            cards.forEach((card, index) => {
+                // Set width first
+                card.style.width = cardWidth + 'px';
+
+                const img = card.querySelector('.art-portfolio');
+
+                if (img.complete) {
+                    positionCard(card, index);
+                } else {
+                    img.addEventListener('load', () => positionCard(card, index));
+                }
+            });
+
+            function positionCard(card, index) {
+                const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights));
+                const left = shortestColumn * (cardWidth + gap);
+                const top = columnHeights[shortestColumn];
+
+                card.style.left = left + 'px';
+                card.style.top = top + 'px';
+
+                columnHeights[shortestColumn] += card.offsetHeight + gap;
+
+                loadedCount++;
+                if (loadedCount === cards.length) {
+                    container.style.height = Math.max(...columnHeights) + 'px';
+                }
+            }
+        }
+
+        window.addEventListener('load', layoutMasonry);
+        window.addEventListener('resize', layoutMasonry);
+
+        // Run on load and resize
+        window.addEventListener('load', layoutMasonry);
+        window.addEventListener('resize', layoutMasonry);
+
+        // Run on load and resize
+        window.addEventListener('load', layoutMasonry);
+        window.addEventListener('resize', layoutMasonry);
+    </script>
 
 
 
