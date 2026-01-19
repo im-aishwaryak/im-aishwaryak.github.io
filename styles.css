@@ -321,7 +321,7 @@ ul li {
 }
 
 .vertical-nav a:hover {
-  color: white;
+  color: #92e3e7b0;
 }
 
 /* About text or other content section */
@@ -846,17 +846,21 @@ hr {
 
 
 
+
 .gallery-container {
-  position: relative;
-  margin: 2rem auto;
+    column-count: 3;
+    column-gap: 1.5rem;
+    padding: 2rem 0;
 }
 
 .art-card {
-  position: absolute;
-  background: rgba(11, 14, 25, 0.30);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: 0.5s;
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(11, 14, 25, 0.30);
+    transition: 0.5s;
 }
 
 .art-card:hover {
@@ -865,19 +869,36 @@ hr {
 }
 
 .art-portfolio {
-  width: 100%;
-  height: auto;
-  display: block;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .art-card p {
-  padding: 1rem;
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #ffffff;
-  opacity: 0.6;
+    padding: 1rem;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #fff;
+    opacity: 0.6;
 }
 
+/* Responsive */
+@media (max-width: 1200px) {
+    .gallery-container {
+        column-count: 2;
+    }
+}
 
+@media (max-width: 640px) {
+    .gallery-container {
+        column-count: 1;
+        column-gap: 0;
+        padding: 1rem 0;
+    }
+    
+    .art-card {
+        margin-bottom: 1rem;
+    }
+}
 
