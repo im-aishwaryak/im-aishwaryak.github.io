@@ -848,24 +848,23 @@ hr {
 
 
 .gallery-container {
-    column-count: 3;
-    column-gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
     padding: 2rem 0;
 }
 
 .art-card {
-    break-inside: avoid;
-    margin-bottom: 1.5rem;
-    background: #fff;
+    background: rgba(11, 14, 25, 0.30);
     border-radius: 8px;
     overflow: hidden;
-    background: rgba(11, 14, 25, 0.30);
     transition: 0.5s;
+    height: fit-content;
 }
 
 .art-card:hover {
-  scale: 1.01;
-  filter: brightness(1.1);
+    scale: 1.01;
+    filter: brightness(1.1);
 }
 
 .art-portfolio {
@@ -886,19 +885,15 @@ hr {
 /* Responsive */
 @media (max-width: 1200px) {
     .gallery-container {
-        column-count: 2;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 640px) {
     .gallery-container {
-        column-count: 1;
-        column-gap: 0;
+        grid-template-columns: 1fr;
+        gap: 1rem;
         padding: 1rem 0;
-    }
-    
-    .art-card {
-        margin-bottom: 1rem;
     }
 }
 
